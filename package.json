@@ -16,7 +16,7 @@
 		"dynamic",
 		"module"
 	],
-	"author": "ez@jok.io",
+	"author": "Ezeki Zibzibadze",
 	"license": "ISC",
 	"bugs": {
 		"url": "https://github.com/playerx/angular-redux-dynamic-modules/issues"
