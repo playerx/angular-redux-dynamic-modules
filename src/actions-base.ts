@@ -1,10 +1,7 @@
 import { dispatch, NgRedux } from '@angular-redux/store';
 import { Action } from "redux";
 
-export abstract class StoreBase<TAction extends Action, TState>{
-
-	constructor(private store: NgRedux<any>) {
-	}
+export abstract class ActionsBase<TAction extends Action>{
 
 	@dispatch()
 	dispatch = (action: TAction) => action

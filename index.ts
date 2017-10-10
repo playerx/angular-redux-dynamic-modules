@@ -1,1 +1,1 @@
-export { RootStoreModule, StoreModule } from './src/store-module';
+export { StoreModule } from './src/store-module';

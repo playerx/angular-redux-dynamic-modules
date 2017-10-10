@@ -1,11 +1,11 @@
 {
 	"compileOnSave": false,
 	"compilerOptions": {
-		"outDir": "./bin",
+		"outDir": "./dist",
 		"baseUrl": "src",
-		"outFile": "./bin/index.js",
+		"outFile": "./dist/index.js",
 		"sourceMap": true,
-		"declaration": false,
+		"declaration": true,
 		"module": "amd",
 		"moduleResolution": "node",
 		"strict": false,
