@@ -23,12 +23,9 @@ export class StoreModule {
 	) {
 		const config = reigsterModules(injector);
 
-		const newInitialState = config.InitialState;
-		const mergedState = { ...store.getState(), newInitialState };
-
 		store.configureStore(
 			config.reducer,
-			mergedState,
+			config.InitialState,
 			[dynamicMiddlewares, ...config.epics],
 			devTools.isEnabled() ? [devTools.enhancer()] : []);
 
