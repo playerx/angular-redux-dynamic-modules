@@ -13,6 +13,10 @@ export const storeConfigs: StoreConfigs = {};
 @Injectable()
 export class StoreConfigService {
 
+	ActionTypes: {
+		ModuleAdd: '[StoreConfig] Module Add'
+	}
+
 	constructor(
 		private injector: Injector,
 		private store: NgRedux<any>
@@ -28,7 +32,7 @@ export class StoreConfigService {
 		const newConfig = reigsterModules(this.injector);
 
 		this.store.replaceReducer(x => newConfig.InitialState); // Trivial reducer that just returns the saved state.
-		this.store.dispatch({ type: 'REHYDRATE' }); // Bogus action to trigger the reducer above.
+		this.store.dispatch({ type: this.ActionTypes.ModuleAdd, payload: moduleName }); // Bogus action to trigger the reducer above.
 		this.store.replaceReducer(newConfig.reducer);
 
 		newConfig.epics.forEach(x => addMiddleware(x));
