@@ -13,7 +13,7 @@ export const storeConfigs: StoreConfigs = {};
 @Injectable()
 export class StoreConfigService {
 
-	ActionTypes: {
+	ActionTypes = {
 		ModuleAdd: '[StoreConfig] Module Add'
 	}
 
