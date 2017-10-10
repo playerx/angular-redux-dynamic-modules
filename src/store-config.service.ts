@@ -4,7 +4,7 @@ import { StoreConfig, StoreConfigs } from "./store-config.model";
 import { combineReducers } from "redux";
 import { createEpics } from "./epic-decorator";
 import { NgReduxRouterModule, NgReduxRouter, routerReducer } from '@angular-redux/router';
-import { addMiddleware } from "dynamic-middleware";
+import { addMiddleware } from "./dynamic-middleware";
 
 
 export const storeConfigs: StoreConfigs = {};
