@@ -1,0 +1,25 @@
+{
+  "name": "angular-redux-dynamic-modules",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/playerx/angular-redux-dynamic-modules.git"
+  },
+  "keywords": [
+    "angular",
+    "redux",
+    "dynamic",
+    "module"
+  ],
+  "author": "ez@jok.io",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/playerx/angular-redux-dynamic-modules/issues"
+  },
+  "homepage": "https://github.com/playerx/angular-redux-dynamic-modules#readme"
+}
