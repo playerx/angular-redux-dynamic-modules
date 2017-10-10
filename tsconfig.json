@@ -6,6 +6,7 @@
 		"outFile": "./dist/index.js",
 		"sourceMap": true,
 		"declaration": true,
+		"module": "amd",
 		"moduleResolution": "node",
 		"strict": false,
 		"emitDecoratorMetadata": true,
