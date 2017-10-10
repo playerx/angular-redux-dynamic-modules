@@ -1,7 +1,7 @@
 {
 	"name": "angular-redux-dynamic-modules",
-	"version": "1.0.0",
-	"description": "",
+	"version": "0.1.0",
+	"description": "Helper service and module, which gives ability add modules dynamically to store",
 	"main": "dist/index.ts",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1"
