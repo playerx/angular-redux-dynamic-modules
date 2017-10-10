@@ -1,0 +1,23 @@
+{
+	"compileOnSave": false,
+	"compilerOptions": {
+		"outDir": "./bin",
+		"baseUrl": "src",
+		"outFile": "./bin/index.js",
+		"sourceMap": true,
+		"declaration": false,
+		"module": "amd",
+		"moduleResolution": "node",
+		"strict": false,
+		"emitDecoratorMetadata": true,
+		"experimentalDecorators": true,
+		"target": "es5",
+		"typeRoots": [
+			"node_modules/@types"
+		],
+		"lib": [
+			"es2016",
+			"dom"
+		]
+	}
+}

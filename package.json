@@ -1,25 +1,35 @@
 {
-  "name": "angular-redux-dynamic-modules",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.ts",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/playerx/angular-redux-dynamic-modules.git"
-  },
-  "keywords": [
-    "angular",
-    "redux",
-    "dynamic",
-    "module"
-  ],
-  "author": "ez@jok.io",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/playerx/angular-redux-dynamic-modules/issues"
-  },
-  "homepage": "https://github.com/playerx/angular-redux-dynamic-modules#readme"
+	"name": "angular-redux-dynamic-modules",
+	"version": "1.0.0",
+	"description": "",
+	"main": "bin/index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/playerx/angular-redux-dynamic-modules.git"
+	},
+	"keywords": [
+		"angular",
+		"redux",
+		"dynamic",
+		"module"
+	],
+	"author": "ez@jok.io",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/playerx/angular-redux-dynamic-modules/issues"
+	},
+	"homepage": "https://github.com/playerx/angular-redux-dynamic-modules#readme",
+	"dependencies": {
+		"@angular-redux/router": "^6.3.1",
+		"@angular-redux/store": "^6.5.7",
+		"@angular/common": "^4.4.4",
+		"@angular/core": "^4.4.4",
+		"@angular/router": "^4.4.4",
+		"redux": "^3.7.2",
+		"redux-observable": "^0.16.0",
+		"rxjs": "^5.4.3"
+	}
 }
