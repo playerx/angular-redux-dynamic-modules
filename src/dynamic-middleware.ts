@@ -1,6 +1,7 @@
 import { compose } from 'redux';
 
 function _toConsumableArray(arr) {
+
 	if (Array.isArray(arr)) {
 		const arr2 = Array(arr.length);
 
@@ -28,7 +29,10 @@ export function dynamicMiddlewares(store) {
 			const chain = dynamic.map(function (middleware) {
 				return middleware(middlewareAPI);
 			});
-			return compose.apply(undefined, _toConsumableArray(chain))(next)(action);
+			// return compose.apply(undefined, _toConsumableArray(chain))(next)(action);
+
+			console.log(chain, _toConsumableArray(chain))
+			return next(action);
 		};
 	};
 }
