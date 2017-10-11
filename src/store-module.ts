@@ -1,13 +1,13 @@
 import { NgModule, Injector, ModuleWithProviders } from '@angular/core';
 import { NgReduxModule, NgRedux, DevToolsExtension } from "@angular-redux/store";
-import { addMiddleware, dynamicMiddlewares } from "./dynamic-middleware";
 import { StoreConfigs, StoreConfig } from "./store-config.model";
 import { NgReduxRouterModule, NgReduxRouter, routerReducer } from '@angular-redux/router';
 import { combineReducers } from "redux";
 import { createEpics } from "./epic-decorator";
-import { StoreConfigService, reigsterModules } from "./store-config.service";
+import { StoreConfigService, reigsterModules, dynamicEpicMiddleware } from "./store-config.service";
 
 declare var window: any;
+
 
 
 @NgModule({
@@ -17,16 +17,15 @@ declare var window: any;
 export class StoreModule {
 
 	constructor(
-		injector: Injector,
 		store: NgRedux<any>,
 		devTools: DevToolsExtension,
 	) {
-		const config = reigsterModules(injector);
+		const config = reigsterModules();
 
 		store.configureStore(
 			config.reducer,
 			config.InitialState,
-			[dynamicMiddlewares, ...config.epics],
+			[dynamicEpicMiddleware, ...config.epics],
 			devTools.isEnabled() ? [devTools.enhancer()] : []);
 
 		if (window.devToolsExtension) {

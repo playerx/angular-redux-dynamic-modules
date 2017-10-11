@@ -1,13 +1,14 @@
 import { Injectable, Injector } from "@angular/core";
 import { NgRedux } from "@angular-redux/store";
 import { StoreConfig, StoreConfigs } from "./store-config.model";
-import { combineReducers } from "redux";
+import { Action, combineReducers } from "redux";
 import { createEpics } from "./epic-decorator";
 import { NgReduxRouterModule, NgReduxRouter, routerReducer } from '@angular-redux/router';
-import { addMiddleware } from "./dynamic-middleware";
-
+import { combineEpics, createEpicMiddleware, EpicMiddleware } from "redux-observable";
 
 export const storeConfigs: StoreConfigs = {};
+
+export const dynamicEpicMiddleware = createEpicMiddleware(combineEpics(...[]));
 
 
 @Injectable()
@@ -17,10 +18,7 @@ export class StoreConfigService {
 		ModuleAdd: '[StoreConfig] Module Add'
 	}
 
-	constructor(
-		private injector: Injector,
-		private store: NgRedux<any>
-	) { }
+	constructor(private store: NgRedux<any>) { }
 
 	addModule(moduleName: string, initialState: any, reducer: any, epics?: any[]) {
 		storeConfigs[moduleName] = {
@@ -29,21 +27,22 @@ export class StoreConfigService {
 			epics: epics || []
 		};
 
-		const newConfig = reigsterModules(this.injector);
+		const newConfig = reigsterModules();
 
 		const newInitialState = newConfig.InitialState;
 		const mergedState = { ...this.store.getState(), newInitialState };
 
+		const newEpic = combineEpics(...newConfig.epics);
+		dynamicEpicMiddleware.replaceEpic(newEpic);
+
 		this.store.replaceReducer(x => mergedState); // Trivial reducer that just returns the saved state.
 		this.store.dispatch({ type: this.ActionTypes.ModuleAdd, payload: moduleName }); // Bogus action to trigger the reducer above.
 		this.store.replaceReducer(newConfig.reducer);
-
-		newConfig.epics.forEach(x => addMiddleware(x));
 	}
 }
 
 
-export function reigsterModules(injector): StoreConfig {
+export function reigsterModules(): StoreConfig {
 	const items = storeConfigs;
 
 	// Initial State
@@ -66,11 +65,12 @@ export function reigsterModules(injector): StoreConfig {
 	});
 
 	// Epics
-	const epicInstances = epicClasses.map(x => {
-		return injector.get(x);
-	});
+	const epicInstances = epicClasses
+	// 	.map(x => {
+	// 	return injector.get(x);
+	// });
 
-	const epics = epicInstances.map(x => createEpics(x));
+	const epics = epicInstances.map(x => createEpics(x)).reduce((a, b) => a.concat(b), []);
 
 
 	return {
