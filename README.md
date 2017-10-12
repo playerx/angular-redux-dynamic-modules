@@ -58,7 +58,8 @@ Dispatching Actions:
 
 ```ts
 import { Dispatcher } from 'angular-redux-dynamic-modules';
-
+import * as user from '@modules/user';
+import * as hr from '@modules/hr';
 
 export class MainComponent implements OnInit {
 
