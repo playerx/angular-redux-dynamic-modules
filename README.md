@@ -41,15 +41,21 @@ import { StoreConfigService } from 'angular-redux-dynamic-modules';
 	providers: [Actions, UserService, Epics],
 })
 export class UserModule {
-	constructor(storeConfig: StoreConfigService) {
+	constructor(
+		storeConfig: StoreConfigService,
+		epics: Epics
+	) {
+
 		// Register State
 		storeConfig.addModule(
-			'User', // key for state (root level)
+			'User',
 			InitialState,
 			reducer,
-			[Epics]
+			[epics]
 		);
+
 	}
+
 }
 ```
 
