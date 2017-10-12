@@ -1,6 +1,6 @@
 {
 	"name": "angular-redux-dynamic-modules",
-	"version": "0.1.1",
+	"version": "0.2.0",
 	"description": "Helper service and module, which gives ability add modules dynamically to store",
 	"main": "dist/index.ts",
 	"scripts": {
