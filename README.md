@@ -79,4 +79,4 @@ export class MainComponent implements OnInit {
 
 
 Also please check out: 
-[Example App](https://github.com/altasoft/angular-redux)
+[Example App](https://github.com/playerx/angular-redux)
