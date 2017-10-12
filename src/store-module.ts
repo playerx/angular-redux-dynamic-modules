@@ -5,6 +5,7 @@ import { NgReduxRouterModule, NgReduxRouter, routerReducer } from '@angular-redu
 import { combineReducers } from "redux";
 import { createEpics } from "./epic-decorator";
 import { StoreConfigService, reigsterModules, dynamicEpicMiddleware } from "./store-config.service";
+import { Dispatcher } from "./dispatcher";
 
 declare var window: any;
 
@@ -12,7 +13,7 @@ declare var window: any;
 
 @NgModule({
 	imports: [NgReduxModule, NgReduxRouterModule],
-	providers: [StoreConfigService]
+	providers: [StoreConfigService, Dispatcher]
 })
 export class StoreModule {
 
