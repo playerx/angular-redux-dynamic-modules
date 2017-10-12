@@ -52,3 +52,27 @@ export class UserModule {
 	}
 }
 ```
+
+
+Dispatching Actions:
+
+```ts
+import { Dispatcher } from 'angular-redux-dynamic-modules';
+
+
+export class MainComponent implements OnInit {
+
+	constructor(
+		private store: Dispatcher<hr.PublicAction | user.PublicAction>
+	) { }
+	
+	ngOnInit() {
+		this.store.dispatch({
+			type: hr.ActionType.LoadList,
+			filterName: '',
+			filterSurname: ''
+		});
+	}
+
+}
+```
