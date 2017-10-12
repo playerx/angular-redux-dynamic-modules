@@ -41,15 +41,21 @@ import { StoreConfigService } from 'angular-redux-dynamic-modules';
 	providers: [Actions, UserService, Epics],
 })
 export class UserModule {
-	constructor(storeConfig: StoreConfigService) {
+	constructor(
+		storeConfig: StoreConfigService,
+		epics: Epics
+	) {
+
 		// Register State
 		storeConfig.addModule(
-			'User', // key for state (root level)
+			'User',
 			InitialState,
 			reducer,
-			[Epics]
+			[epics]
 		);
+
 	}
+
 }
 ```
 
@@ -58,7 +64,8 @@ Dispatching Actions:
 
 ```ts
 import { Dispatcher } from 'angular-redux-dynamic-modules';
-
+import * as user from '@modules/user';
+import * as hr from '@modules/hr';
 
 export class MainComponent implements OnInit {
 
@@ -79,4 +86,4 @@ export class MainComponent implements OnInit {
 
 
 Also please check out: 
-[Example App](https://github.com/altasoft/angular-redux)
+[Example App](https://github.com/playerx/angular-redux)
