@@ -1,9 +1,12 @@
 {
 	"name": "angular-redux-dynamic-modules",
-	"version": "0.2.1",
+	"version": "0.2.4",
 	"description": "Helper service and module, which gives ability add modules dynamically to store",
-	"main": "dist/index.ts",
+	"main": "dist/index.js",
+	"types": "dist/index.d.ts",
 	"scripts": {
+		"prepublish": "npm run build",
+		"build": "tsc",
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
 	"repository": {
@@ -23,13 +26,13 @@
 	},
 	"homepage": "https://github.com/playerx/angular-redux-dynamic-modules#readme",
 	"dependencies": {
-		"@angular-redux/router": "^6.3.1",
-		"@angular-redux/store": "^6.5.7",
-		"@angular/common": "^4.4.4",
-		"@angular/core": "^4.4.4",
-		"@angular/router": "^4.4.4",
-		"redux": "^3.7.2",
-		"redux-observable": "^0.16.0",
-		"rxjs": "^5.4.3"
+		"@angular-redux/router": "6.3.1",
+		"@angular-redux/store": "7.0.0",
+		"@angular/common": "5.0.2",
+		"@angular/core": "5.0.2",
+		"@angular/router": "5.0.2",
+		"redux": "3.7.2",
+		"redux-observable": "0.17.0",
+		"rxjs": "5.5.2"
 	}
 }

@@ -3,11 +3,9 @@
 	"compilerOptions": {
 		"outDir": "./dist",
 		"baseUrl": "src",
-		"outFile": "./dist/index.js",
-		"sourceMap": true,
+		"sourceMap": false,
 		"declaration": true,
-		"module": "amd",
-		"moduleResolution": "node",
+		"module": "commonjs",
 		"strict": false,
 		"emitDecoratorMetadata": true,
 		"experimentalDecorators": true,
